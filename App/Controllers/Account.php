@@ -39,38 +39,8 @@ class Account extends Authenticated
         // Fetch user
         $user = Auth::getUser();
 
-        // Fetch Orders
-        $myOrders = $user->orders();
+        View::renderBlade('account.welcome',['authUser'=>$user]);
 
-        // Fetch courses
-        $courses2 = $user->groups();
-        $num = count($courses2);
-
-        if(empty($courses2)){
-            //Flash::addMessage('Oops! You have not subscribed to any course yet. Please subscribe below:', Flash::DANGER);
-            $this->redirect('/Subscribe/index');
-        }
-        else{
-
-            // Render view
-            View::renderBlade('account.welcome',[
-                'authUser'=>$user,
-                'courses2'=>$courses2,
-                'myOrders'=>$myOrders
-            ]);
-
-            /*if($num<2){
-                $this->redirect('/Page/list-subject?gid='.$courses2[0]->id);
-            }else{
-
-                // Render view
-                View::renderBlade('account.welcome',[
-                    'authUser'=>$user,
-                    'courses2'=>$courses2,
-                    'myOrders'=>$myOrders
-                ]);
-            }*/
-        }
     }
 
     /**
