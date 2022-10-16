@@ -347,11 +347,11 @@ class Member extends Model
             $stmt->bindValue(':name', $this->name, PDO::PARAM_STR);
             $stmt->bindValue(':mobile', $this->mobile, PDO::PARAM_STR);
             $stmt->bindValue(':whatsapp', $this->whatsapp, PDO::PARAM_STR);
-            $stmt->bindValue(':gender', $this->gender, PDO::PARAM_STR);
-            $stmt->bindValue(':location', $this->location, PDO::PARAM_STR);
-            $stmt->bindValue(':state', $this->state, PDO::PARAM_STR);
-            $stmt->bindValue(':district', $this->district, PDO::PARAM_STR);
-            $stmt->bindValue(':block', $block, PDO::PARAM_STR);
+            $stmt->bindValue(':gender', $this->gender, PDO::PARAM_INT);
+            $stmt->bindValue(':location', $this->location, PDO::PARAM_INT);
+            $stmt->bindValue(':state', $this->state, PDO::PARAM_INT);
+            $stmt->bindValue(':district', $this->district, PDO::PARAM_INT);
+            $stmt->bindValue(':block', $block, PDO::PARAM_INT);
             $stmt->bindValue(':address', $address, PDO::PARAM_STR);
 
             return $stmt->execute();
